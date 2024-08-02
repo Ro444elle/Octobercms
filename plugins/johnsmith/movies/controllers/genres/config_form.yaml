@@ -1,0 +1,10 @@
+name: Genres
+form: $/johnsmith/movies/models/genre/fields.yaml
+modelClass: JohnSmith\Movies\Models\Genre
+defaultRedirect: johnsmith/movies/genres
+create:
+    redirect: 'johnsmith/movies/genres/update/:id'
+    redirectClose: johnsmith/movies/genres
+update:
+    redirect: johnsmith/movies/genres
+    redirectClose: johnsmith/movies/genres

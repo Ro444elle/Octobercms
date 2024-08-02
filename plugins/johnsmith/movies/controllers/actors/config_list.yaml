@@ -1,0 +1,12 @@
+title: Actors
+modelClass: JohnSmith\Movies\Models\Actor
+list: $/johnsmith/movies/models/actor/columns.yaml
+recordUrl: 'johnsmith/movies/actors/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

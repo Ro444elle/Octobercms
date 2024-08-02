@@ -1,0 +1,34 @@
+title = "Genres"
+layout = "default"
+url = "/genres/:slug"
+
+[builderDetails]
+modelClass = "JohnSmith\Movies\Models\Genre"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "genre_title"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+
+
+{% if record %}
+
+   <h2> {{ attribute(record, displayColumn) }} </h2>
+
+   {% for movie in record.movies %}
+
+
+   <a href="/movies/{{ movie.slug }}">  {{ movie.name }} </a><br>
+
+
+  {% endfor %}
+
+
+
+   {% else %}
+    {{ notFoundMessage }}
+{% endif %}

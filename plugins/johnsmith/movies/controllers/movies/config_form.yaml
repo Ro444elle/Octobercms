@@ -1,0 +1,10 @@
+name: Movies
+modelClass: JohnSmith\Movies\Models\Movie
+form: $/johnsmith/movies/models/movie/fields.yaml
+defaultRedirect: johnsmith/movies/movies
+create:
+    redirect: 'johnsmith/movies/movies/update/:id'
+    redirectClose: johnsmith/movies/movies
+update:
+    redirect: johnsmith/movies/movies
+    redirectClose: johnsmith/movies/movies

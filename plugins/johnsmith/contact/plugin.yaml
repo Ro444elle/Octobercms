@@ -1,0 +1,6 @@
+plugin:
+    name: 'johnsmith.contact::lang.plugin.name'
+    description: 'johnsmith.contact::lang.plugin.description'
+    author: 'John Smith'
+    icon: oc-icon-adjust
+    homepage: ''

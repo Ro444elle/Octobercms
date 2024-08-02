@@ -1,0 +1,10 @@
+name: Actors
+modelClass: JohnSmith\Movies\Models\Actor
+form: $/johnsmith/movies/models/actor/fields.yaml
+defaultRedirect: johnsmith/movies/actors
+create:
+    redirect: 'johnsmith/movies/actors/update/:id'
+    redirectClose: johnsmith/movies/actors
+update:
+    redirect: johnsmith/movies/actors
+    redirectClose: johnsmith/movies/actors

@@ -1,0 +1,56 @@
+url = "/myhome"
+layout = "default"
+title = "MyHome"
+
+[demoTodo]
+max = 10
+addDefault = 0
+
+[resources]
+
+[actors]
+results = 0
+sortOrder = "name asc"
+==
+<h1>This is MyHome page</h1>
+
+
+<form
+        role="form"
+        data-request="{{ demoTodo }}::onAddItem"
+        data-request-update="'{{ demoTodo }}::list': '#result'"
+        data-request-success="$('#input-item').val('')"
+        data-request-flash>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">To Do List</h3>
+            </div>
+            <div class="panel-body">
+                <div class="input-group">
+                    <input type="text" id="input-item" class="form-control" value="" name="newItem" placeholder="What needs to be done?">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </span>
+                </div>
+            </div>
+                <ul class="list-group" id="result">
+                    {% partial demoTodo ~ '::list' %}
+                </ul>
+        </div>
+</form>
+
+ {% set actors= actors.actors %}
+ 
+ 
+ 
+ <ul>
+ 
+ 
+ 
+     {% for actor in actors %}
+ 
+         <li>{{actor.name}}  {{actor.lastname}}</li>
+ 
+     {% endfor %}
+ 
+ </ul>

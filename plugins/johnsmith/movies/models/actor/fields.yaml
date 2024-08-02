@@ -1,0 +1,13 @@
+fields:
+    name:
+        label: Name
+        span: left
+        type: text
+    last_name:
+        label: 'Last Name'
+        span: auto
+        type: text
+    age:
+        label: Age
+        span: left
+        type: number

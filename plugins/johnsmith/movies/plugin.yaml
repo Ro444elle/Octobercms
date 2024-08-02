@@ -1,0 +1,24 @@
+plugin:
+    name: 'johnsmith.movies::lang.plugin.name'
+    description: 'johnsmith.movies::lang.plugin.description'
+    author: 'John Smith'
+    icon: oc-icon-video-camera
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Movies
+        url: johnsmith/movies/movies
+        icon: icon-video-camera
+        sideMenu:
+            side-menu-item:
+                label: Genres
+                url: johnsmith/movies/genres
+                icon: icon-tag
+            side-menu-item2:
+                label: 'Menu Item'
+                url: johnsmith/movies/movies
+                icon: icon-sitemap
+            side-menu-item3:
+                label: Actors
+                url: johnsmith/movies/actors
+                icon: icon-star
