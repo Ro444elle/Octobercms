@@ -45,21 +45,25 @@ class ContactForm extends ComponentBase
 
 
         if($validator->fails()){
-            return Redirect::back()->withErrors($validator);
+            throw new \ValidationException($validator);
+
+            return ['#result' => $this->renderPartial('contactform::messages', [
+                'errorMsgs' => $validator->messages()->all(),
+                'fieldMsgs' => $validator->messages(),
+            ])];
             //Do somenthing
 
-        } else {
+        } 
 
-            $data = ['name' => Input::get('name'), 'email' => Input::get('email'), 'message' => Input::get('content')];
-            
-            Mail::send('johnsmith.contact::mail.message', $data, function($message) 
-            {
-                $message->to('test@domain.com', 'Admin Person');
-                $message->subject('New message from contact form');
+        $data = ['name' => Input::get('name'), 'email' => Input::get('email'), 'message' => Input::get('content')];
+        // dd($data);
         
-            });
-        }
-
+        // Mail::send('johnsmith.contact::mail.message', $data, function($message) 
+        // {
+        //     $message->to('test@domain.com', 'Admin Person');
+        //     $message->subject('New message from contact form');
+    
+        // });
 
     
     }

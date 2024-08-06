@@ -1,0 +1,6 @@
+plugin:
+    name: 'johnsmith.profile::lang.plugin.name'
+    description: 'johnsmith.profile::lang.plugin.description'
+    author: 'John Smith'
+    icon: oc-icon-user
+    homepage: ''

@@ -58,13 +58,16 @@
         }
     </style>
 
-<form data-request="onSend">
+<form data-request="contactform::onSend" data-request-validate>
 
     <label>Your name</label>
     <input type="text" name="name">
+    {{ error.first('name') }}
 
     <label>Your email</label>
     <input type="email" name="email">
+    {{ error.first('name') }}
+
 
     <label>Your message</label>
     <textarea name="content"></textarea>
@@ -82,3 +85,6 @@
 
     </ul>
 </form>
+
+
+<div id="result"></div>
