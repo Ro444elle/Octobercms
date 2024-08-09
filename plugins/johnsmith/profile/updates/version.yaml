@@ -1,3 +1,5 @@
 v1.0.1:
-    - 'Initialize plugin',
-    - 'add_new_fields.php'
+    - 'Initialize plugin'
+v1.0.2:
+    - 'Extend table users with new fields'
+    - update_users_table_v1.php

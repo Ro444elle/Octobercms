@@ -22,9 +22,7 @@ class ActorForm extends ComponentBase
 
     }
     
-    
-    
-    
+
     
     
     public function onSave()
@@ -33,6 +31,8 @@ class ActorForm extends ComponentBase
         $actor = new Actor();
         $actor->name = Input::get('name');
         $actor->last_name = Input::get('lastname');
+        $actor->age = Input::get('age');
+        $actor->actorimage = Input::file('actorimage');
 
         $actor->save();
 

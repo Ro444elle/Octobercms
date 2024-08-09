@@ -38,4 +38,9 @@ class Actor extends Model
         ]
     ];
 
+
+    public $attachOne = [
+        'actorimage' => 'System\Models\File'
+    ];
+
 }

@@ -4,8 +4,4 @@ columns:
         type: text
         searchable: true
         sortable: true
-    last_name:
-        label: 'Last Name'
-        type: text
-        searchable: true
-        sortable: true
+        select: "concat(name, ' ', last_name)"

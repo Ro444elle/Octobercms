@@ -4,6 +4,7 @@
         class="btn btn-primary oc-icon-plus">
         <?= e(trans('backend::lang.form.create')) ?>
     </a>
+    <?php if($this->user->hasAccess('delete-movies')): ?>
     <button
         class="btn btn-default oc-icon-trash-o"
         data-request="onDelete"
@@ -13,4 +14,5 @@
         data-stripe-load-indicator>
         <?= e(trans('backend::lang.list.delete_selected')) ?>
     </button>
+    <?php endif ?>
 </div>

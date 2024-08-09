@@ -1,6 +1,6 @@
 columns:
     name:
-        label: Name
+        label: 'Movie name'
         type: text
         searchable: true
         sortable: true
@@ -11,3 +11,22 @@ columns:
     description:
         label: Description
         type: text
+    poster:
+        label: Poster
+        type: partial
+        path: ~/plugins/johnsmith/movies/models/movie/_poster_column.htm
+    genres:
+        label: Genres
+        type: text
+        searchable: true
+        select: genre_title
+        relation: genres
+    id:
+        label: id
+        type: number
+    created_at:
+        label: created_at
+        type: datetime
+    published:
+        label: Published
+        type: switch

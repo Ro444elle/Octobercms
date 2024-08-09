@@ -7,6 +7,7 @@ use Mail;
 
 use Validator;
 use Redirect;
+use ValidationException;
 
 class ContactForm extends ComponentBase 
 
@@ -22,50 +23,33 @@ class ContactForm extends ComponentBase
     
     
     
-    
-    
-    
-    
-    
     public function onSend()
     {
-        $validator = Validator::make( 
-            [
-                'name' => Input::get('name'),
-                'email' => Input::get('email'),
-            ],
-        
-            [
-                'name' => 'required|min:5',
-                'email' => 'required|email|unique:users',
-            ],
+        $data = post();
+
+
+
+        $rules =
+        [
+        'name' => 'required|min:5',
+        'email' => 'required|email|unique:users',
+        ];
     
-        );
+
+        $validator = Validator::make($data, $rules);
 
 
 
-        if($validator->fails()){
-            throw new \ValidationException($validator);
+        if($validator->fails())
+        {
+            throw new ValidationException($validator);
 
-            return ['#result' => $this->renderPartial('contactform::messages', [
-                'errorMsgs' => $validator->messages()->all(),
-                'fieldMsgs' => $validator->messages(),
-            ])];
-            //Do somenthing
-
-        } 
-
-        $data = ['name' => Input::get('name'), 'email' => Input::get('email'), 'message' => Input::get('content')];
-        // dd($data);
-        
-        // Mail::send('johnsmith.contact::mail.message', $data, function($message) 
-        // {
-        //     $message->to('test@domain.com', 'Admin Person');
-        //     $message->subject('New message from contact form');
+        }
+            $vars = ['name' => Input::get('name'), 'email' => Input::get('email'), 'message' => Input::get('content')];
+            // dd($data);
+            
     
-        // });
 
-    
     }
     
     

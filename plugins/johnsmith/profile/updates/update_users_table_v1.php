@@ -1,27 +1,26 @@
 <?php namespace JohnSmith\Profile\Updates;
 
-use October\Rain\Database\Schema\Blueprint;
+use Schema;
 use October\Rain\Database\Updates\Migration;
 
-return new class extends Migration
+class UpdateUsersTableV1 extends Migration
 {
     public function up()
     {
-        Schema::table('users', function(Blueprint $table) {
+        Schema::table('users', function($table) {
             $table->string('facebook')->nullable();
             $table->text('bio')->nullable();
         });
     }
 
-
-
     public function down()
     {
-       Schema::table('users', function(Blueprint $table){
+       Schema::table('users', function($table){
         $table->dropColumn([
             'facebook',
             'bio',
            ]);
        });
     }
-};
+
+}

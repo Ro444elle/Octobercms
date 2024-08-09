@@ -11,6 +11,7 @@
 
         <div class="layout-row">
             <?= $this->formRender() ?>
+
         </div>
 
         <div class="form-buttons">
@@ -33,14 +34,17 @@
                     class="btn btn-default">
                     <?= e(trans('backend::lang.form.save_and_close')) ?>
                 </button>
-                <button
-                    type="button"
-                    class="oc-icon-trash-o btn-icon danger pull-right"
-                    data-request="onDelete"
-                    data-load-indicator="<?= e(trans('backend::lang.form.deleting')) ?>"
-                    data-request-confirm="<?= e(trans('backend::lang.form.confirm_delete')) ?>">
-                </button>
 
+                <?php if($this->user->hasAccess('delete-movies')): ?>
+                    <button
+                        type="button"
+                        class="oc-icon-trash-o btn-icon danger pull-right"
+                        data-request="onDelete"
+                        data-load-indicator="<?= e(trans('backend::lang.form.deleting')) ?>"
+                        data-request-confirm="<?= e(trans('backend::lang.form.confirm_delete')) ?>">
+                    </button>
+                <?php endif ?>   
+                
                 <span class="btn-text">
                     <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('johnsmith/movies/movies') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                 </span>

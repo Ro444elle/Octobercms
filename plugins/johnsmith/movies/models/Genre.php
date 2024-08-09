@@ -28,6 +28,8 @@ class Genre extends Model
 
     /*Relations */
 
+    public $nameFrom = 'genre_title';
+
     public $belongsToMany = [
 
         'movies' => [

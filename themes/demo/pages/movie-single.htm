@@ -1,36 +1,39 @@
 url = "/movies/:slug"
 layout = "default"
 title = "Movie single"
-
-[builderDetails]
-modelClass = "JohnSmith\Movies\Models\Movie"
-identifierValue = "{{ :slug }}"
-modelKeyColumn = "slug"
-displayColumn = "name"
-notFoundMessage = "Record not found"
 ==
-{% set record = builderDetails.record %}
-{% set displayColumn = builderDetails.displayColumn %}
-{% set notFoundMessage = builderDetails.notFoundMessage %}
+<?php
 
-{% if record %}
-    <h2>{{ record.name }}</h2>
+  use JohnSmith\Movies\Models\Movie;
 
-      <img src="{{ record.poster.thumb(200, auto) }}">   
+  function onStart()
+  {
+    $this['movie'] = Movie::where('slug', '=', $this->param('slug'))->first();
+        
+  }
 
 
-    <h4>{{ record.year }}</h4>
+?>
+==
+
+  {% if movie %}
+    <h2>{{ movie.name }}</h2>
+
+      <img src="{{ movie.poster.thumb(200, auto) }}">   
+
+
+    <h4>{{ movie.year }}</h4>
 
 
     <h2>Description</h2>
 
-      {{ record.description|raw }}
-
+      {{ movie.description|raw }}
+ 
       
 
     <h3>Actors</h3>
 
-      {% for actor in record.actors %}
+      {% for actor in movie.actors %}
 
         {{ actor.name }} <br>
         {{ actor.last_name }}
@@ -45,7 +48,7 @@ notFoundMessage = "Record not found"
 
         <ul class="movie-gallery">
 
-          {% for image in record.movie_gallery %}
+          {% for image in movie.movie_gallery %}
 
             <li>
               <a href="{{ image.path }}">
@@ -61,7 +64,7 @@ notFoundMessage = "Record not found"
 
     <h3>Genres</h3>
 
-      {% for genre in record.genres %}
+      {% for genre in movie.genres %}
 
         <a href="/genres/{{ genre.slug }}"> {{ genre.genre_title }} </a><br>
 
@@ -70,6 +73,6 @@ notFoundMessage = "Record not found"
 
 
 
-{% else %}
+  {% else %}
     {{ notFoundMessage }}
-{% endif %}
+  {% endif %}

@@ -1,0 +1,5 @@
+# genres:
+#   label: Genre
+#   view:
+#     list:$/johnsmith/movies/models/genre/columns.yaml
+

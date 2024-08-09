@@ -9,16 +9,30 @@ navigation:
         label: Movies
         url: johnsmith/movies/movies
         icon: icon-video-camera
+        permissions:
+            - manage_movies
         sideMenu:
             side-menu-item:
                 label: Genres
                 url: johnsmith/movies/genres
                 icon: icon-tag
+                permissions:
+                    - lookinto_genres
             side-menu-item2:
                 label: 'Menu Item'
                 url: johnsmith/movies/movies
-                icon: icon-sitemap
+                icon: icon-sun-o
             side-menu-item3:
                 label: Actors
                 url: johnsmith/movies/actors
                 icon: icon-star
+permissions:
+    manage_movies:
+        tab: Movies
+        label: 'Manage Movies'
+    lookinto_genres:
+        tab: Movies
+        label: 'Look into Genres'
+    delete_movies:
+        tab: Movies
+        label: 'Delete Movies'

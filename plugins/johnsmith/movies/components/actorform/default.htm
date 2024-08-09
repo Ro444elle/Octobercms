@@ -57,14 +57,26 @@
             background-color: #45a049;
         }
     </style>
+<!-- *Modified for using basic handling fomr(not AJAX) -->
+<form method="POST" action="{{ url('add-actors') }}" accept-charset="UTF8" enctype="multipart/form-data">
 
-<form data-request="onSave">
+    <input type="hidden" name="_handler" value="onSave">
+
+    <!-- *Add token for form -->
+    {{ form_token() }}
+    {{ form_sessionKey() }}
 
     <label>Actor name</label>
     <input type="text" name="name">
 
     <label>Actor lastname</label>
     <input type="text" name="lastname">
+
+    <label>Actor's age</label>
+    <input type="text" name="age">
+
+    <label>Actor's image</label>
+    <input type="file" name="actorimage">
 
 
     <button type="submit">Save Actor</button>

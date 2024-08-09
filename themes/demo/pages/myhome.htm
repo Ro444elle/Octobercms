@@ -11,11 +11,57 @@ addDefault = 0
 [actors]
 results = 0
 sortOrder = "name asc"
+
+[siteSearchInclude]
 ==
-<h1>This is MyHome page</h1>
+
+<?php
+    //  Refactor with PHP block
+    use JohnSmith\Movies\Models\Movie;
+
+    function onStart()
+    {
+        $this['movies'] = Movie::take(2)->get();
+
+    }
+
+?>
+
+==
+    <form action="{{ 'search' | page }}" method="get">
+        <input name="q" type="text" placeholder="What are you looking for?" autocomplete="off">
+        <button type="submit">Search</button>
+    </form>
 
 
-<form
+
+        <ul class="movie-list">
+
+            {% for movie in movies %}
+
+                <li>
+                    <a href="/movies/{{movie.slug}}">
+                        {{ movie.name }} - {{ movie.year }}
+                    </a>
+
+                    {{ html_limit(movie.description, 150)|raw }}
+                </li>
+
+                {% else %}
+
+                <li class="no-data">No movies found</li>
+            {% endfor %}
+        </ul>
+
+
+        {% component 'siteSearchInclude' %}
+
+
+
+    <h1>This is MyHome page</h1>
+
+
+    <!-- <form   
         role="form"
         data-request="{{ demoTodo }}::onAddItem"
         data-request-update="'{{ demoTodo }}::list': '#result'"
@@ -36,21 +82,19 @@ sortOrder = "name asc"
                 <ul class="list-group" id="result">
                     {% partial demoTodo ~ '::list' %}
                 </ul>
-        </div>
-</form>
+            </div>
+    </form> -->
 
- {% set actors= actors.actors %}
+    {% set actors = actors.actors %}
  
  
  
- <ul>
- 
- 
- 
-     {% for actor in actors %}
- 
-         <li>{{actor.name}}  {{actor.lastname}}</li>
- 
-     {% endfor %}
- 
- </ul>
+    <ul>
+    
+        {% for actor in actors %}
+    
+            <li>{{actor.name}}  {{actor.lastname}}</li>
+    
+        {% endfor %}
+    
+    </ul>
