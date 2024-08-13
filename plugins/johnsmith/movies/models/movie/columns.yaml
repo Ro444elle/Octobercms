@@ -11,10 +11,6 @@ columns:
     description:
         label: Description
         type: text
-    poster:
-        label: Poster
-        type: partial
-        path: ~/plugins/johnsmith/movies/models/movie/_poster_column.htm
     genres:
         label: Genres
         type: text

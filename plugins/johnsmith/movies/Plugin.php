@@ -90,6 +90,7 @@ class Plugin extends PluginBase
         return [
             'JohnSmith\Movies\Components\Actors' => 'actors',
             'JohnSmith\Movies\Components\ActorForm' => 'actorform',
+            'JohnSmith\Movies\Components\FilterMovies' => 'filtermovies',
         
         ];
     }
